@@ -29,25 +29,31 @@
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: var(--text);
-      background: var(--off-white);
+      background: var(--border-color); /* Fondo oscurecido para resaltar el diseño en caja */
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* HERO SECTION - Imagen integrada */
+    /* CONTENEDOR MAESTRO - Agrupa toda la página */
+    .page-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--off-white);
+      box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Sombra para despegar la caja del fondo */
+    }
+
+    /* HERO SECTION - Ahora restringida al ancho del texto */
     .hero-section {
       position: relative;
       background: linear-gradient(135deg, rgba(15, 61, 74, 0.85) 0%, rgba(10, 44, 53, 0.5) 100%), 
-                  url('image.png') center/cover no-repeat;
-      padding: clamp(60px, 12vw, 120px) 20px;
+                  url('image.png') center 30%/cover no-repeat; /* Ajuste de foco fotográfico */
+      padding: clamp(100px, 15vw, 180px) 20px 80px; /* Aumento de altura vertical */
       text-align: center;
       color: var(--white);
       border-bottom: 4px solid var(--gold);
     }
 
     .header-container {
-      max-width: 1000px;
-      margin: 0 auto;
       position: relative;
       z-index: 2;
     }
@@ -78,9 +84,7 @@
 
     /* MAIN CONTENT */
     main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      padding: 40px 20px;
     }
 
     section {
@@ -309,7 +313,6 @@
       text-align: center;
       font-size: 13px;
       border-top: 1px solid rgba(200, 168, 75, 0.2);
-      margin-top: 60px;
     }
 
     footer strong {
@@ -332,11 +335,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      main {
-        margin: 30px auto;
-        padding: 0 16px;
-      }
-
       .main-card {
         padding: 24px;
       }
@@ -351,8 +349,12 @@
     }
 
     @media (max-width: 480px) {
+      .page-wrapper {
+        box-shadow: none;
+      }
+
       .hero-section {
-        padding: 50px 16px;
+        padding: 80px 16px;
       }
 
       .hero-section h1 {
@@ -383,100 +385,105 @@
 </head>
 <body>
 
-  <div class="hero-section">
-    <div class="header-container">
-      <div class="badge">Movilidad Académica</div>
-      <h1>Rotaciones Clínicas del Internado</h1>
-    </div>
-  </div>
-
-  <main>
-    <!-- SECCIÓN INSTITUCIONAL -->
-    <section aria-labelledby="institutions-heading">
-      <div id="institutions-heading" style="display: none;">Instituciones Participantes</div>
-      <div class="parallel-grid">
-        <!-- TARJETA UNIVERSIDAD EIA -->
-        <article class="main-card">
-          <h3>Universidad EIA</h3>
-          <p>Ofrece rotaciones clínicas y quirúrgicas en el Hospital Pablo Tobón Uribe para estudiantes de medicina de otras instituciones, nacionales o internacionales, en programas de movilidad académica autorizada.</p>
-          
-          <div class="sub-grid">
-            <div class="sub-card">
-              <h4>📚 Especialidades disponibles</h4>
-              <p>Servicios clínicos y quirúrgicos en el HPTU. Sujeto a disponibilidad de cupos al momento de la solicitud.</p>
-            </div>
-            <div class="sub-card">
-              <h4>⏱️ Duración flexible</h4>
-              <p>Aproximadamente un mes por rotación. Es posible solicitar meses consecutivos según el plan académico.</p>
-            </div>
-            <div class="sub-card">
-              <h4>🌍 Alcance del programa</h4>
-              <p>Abierto a estudiantes de universidades colombianas y extranjeras con movilidad autorizada.</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- TARJETA HOSPITAL PABLO TOBÓN URIBE -->
-        <article class="main-card">
-          <h3>Hospital Pablo Tobón Uribe</h3>
-          <p>Fundación sin ánimo de lucro con vocación universitaria. Referente de alta complejidad en Antioquia y Colombia, acreditado nacional e internacionalmente bajo estándares de calidad y seguridad.</p>
-          
-          <div class="metrics-inline">
-            <div class="metric-box">
-              <div class="metric-num">490+</div>
-              <div class="metric-lbl">Camas Hospitalarias</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-num">JCI</div>
-              <div class="metric-lbl">Acreditación Internacional</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-num">117+</div>
-              <div class="metric-lbl">Especialidades Médicas</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-num">N°1</div>
-              <div class="metric-lbl">Referente en Antioquia</div>
-            </div>
-          </div>
-
-          <div class="sub-card" style="margin-top: 24px; border-left-color: var(--gold);">
-            <h4>✓ Calidad Garantizada</h4>
-            <p>Acreditación del Sistema Único de Acreditación en Salud de Colombia (desde 2005) y la acreditación de la Joint Commission International (JCI).</p>
-          </div>
-        </article>
+  <!-- Contenedor maestro para diseño en caja -->
+  <div class="page-wrapper">
+    
+    <div class="hero-section">
+      <div class="header-container">
+        <div class="badge">Movilidad Académica</div>
+        <h1>Rotaciones Clínicas del Internado</h1>
       </div>
-    </section>
-
-    <div class="notice">
-      <strong>⚠️ Disponibilidad sujeta a cupos:</strong> Las rotaciones se asignan según la oferta vigente del Hospital Pablo Tobón Uribe al momento de la solicitud. Consulta directamente con el asesor de movilidad para confirmar disponibilidad.
     </div>
 
-    <!-- SECCIÓN CONTACTO -->
-    <section aria-labelledby="contact-heading">
-      <div id="contact-heading" style="display: none;">Contacto e Información</div>
-      <div class="contact-box">
-        <h3>Carlos Andrés Oviedo Castrillón</h3>
-        <div class="contact-subtitle">Asesor de Movilidad — Universidad EIA</div>
-        <a href="mailto:carlos.oviedo28@eia.edu.co" class="btn-mail">📧 carlos.oviedo28@eia.edu.co</a>
-        
-        <div class="req-grid">
-          <div class="req-item">Requisitos específicos (idioma, seguro médico, documentación)</div>
-          <div class="req-item">Convenio interinstitucional vigente</div>
-          <div class="req-item">Disponibilidad de cupos por especialidad</div>
-          <div class="req-item">Fechas y proceso de admisión</div>
+    <main>
+      <!-- SECCIÓN INSTITUCIONAL -->
+      <section aria-labelledby="institutions-heading">
+        <div id="institutions-heading" style="display: none;">Instituciones Participantes</div>
+        <div class="parallel-grid">
+          <!-- TARJETA UNIVERSIDAD EIA -->
+          <article class="main-card">
+            <h3>Universidad EIA</h3>
+            <p>Ofrece rotaciones clínicas y quirúrgicas en el Hospital Pablo Tobón Uribe para estudiantes de medicina de otras instituciones, nacionales o internacionales, en programas de movilidad académica autorizada.</p>
+            
+            <div class="sub-grid">
+              <div class="sub-card">
+                <h4>📚 Especialidades disponibles</h4>
+                <p>Servicios clínicos y quirúrgicos en el HPTU. Sujeto a disponibilidad de cupos al momento de la solicitud.</p>
+              </div>
+              <div class="sub-card">
+                <h4>⏱️ Duración flexible</h4>
+                <p>Aproximadamente un mes por rotación. Es posible solicitar meses consecutivos según el plan académico.</p>
+              </div>
+              <div class="sub-card">
+                <h4>🌍 Alcance del programa</h4>
+                <p>Abierto a estudiantes de universidades colombianas y extranjeras con movilidad autorizada.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- TARJETA HOSPITAL PABLO TOBÓN URIBE -->
+          <article class="main-card">
+            <h3>Hospital Pablo Tobón Uribe</h3>
+            <p>Fundación sin ánimo de lucro con vocación universitaria. Referente de alta complejidad en Antioquia y Colombia, acreditado nacional e internacionalmente bajo estándares de calidad y seguridad.</p>
+            
+            <div class="metrics-inline">
+              <div class="metric-box">
+                <div class="metric-num">490+</div>
+                <div class="metric-lbl">Camas Hospitalarias</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">JCI</div>
+                <div class="metric-lbl">Acreditación Internacional</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">117+</div>
+                <div class="metric-lbl">Especialidades Médicas</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">N°1</div>
+                <div class="metric-lbl">Referente en Antioquia</div>
+              </div>
+            </div>
+
+            <div class="sub-card" style="margin-top: 24px; border-left-color: var(--gold);">
+              <h4>✓ Calidad Garantizada</h4>
+              <p>Acreditación del Sistema Único de Acreditación en Salud de Colombia (desde 2005) y la acreditación de la Joint Commission International (JCI).</p>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="header-container">
-      <strong>Universidad EIA</strong>
-      <p>Escuela de Ciencias de la Vida y Medicina<br>Internado Rotatorio · Programa de Medicina<br>Medellín, Colombia</p>
-      <p style="font-size: 11px; opacity: 0.5; margin-top: 12px;">Información sujeta a cambios. Consultar vigencia con la institución.</p>
-    </div>
-  </footer>
+      <div class="notice">
+        <strong>⚠️ Disponibilidad sujeta a cupos:</strong> Las rotaciones se asignan según la oferta vigente del Hospital Pablo Tobón Uribe al momento de la solicitud. Consulta directamente con el asesor de movilidad para confirmar disponibilidad.
+      </div>
+
+      <!-- SECCIÓN CONTACTO -->
+      <section aria-labelledby="contact-heading">
+        <div id="contact-heading" style="display: none;">Contacto e Información</div>
+        <div class="contact-box">
+          <h3>Carlos Andrés Oviedo Castrillón</h3>
+          <div class="contact-subtitle">Asesor de Movilidad — Universidad EIA</div>
+          <a href="mailto:carlos.oviedo28@eia.edu.co" class="btn-mail">📧 carlos.oviedo28@eia.edu.co</a>
+          
+          <div class="req-grid">
+            <div class="req-item">Requisitos específicos (idioma, seguro médico, documentación)</div>
+            <div class="req-item">Convenio interinstitucional vigente</div>
+            <div class="req-item">Disponibilidad de cupos por especialidad</div>
+            <div class="req-item">Fechas y proceso de admisión</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="header-container">
+        <strong>Universidad EIA</strong>
+        <p>Escuela de Ciencias de la Vida y Medicina<br>Internado Rotatorio · Programa de Medicina<br>Medellín, Colombia</p>
+        <p style="font-size: 11px; opacity: 0.5; margin-top: 12px;">Información sujeta a cambios. Consultar vigencia con la institución.</p>
+      </div>
+    </footer>
+  
+  </div> <!-- Fin del contenedor maestro -->
 
 </body>
 </html>
