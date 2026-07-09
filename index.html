@@ -6,40 +6,24 @@
 <title>Rotaciones Clínicas - Universidad EIA</title>
 <style>
   :root {
-    --navy: #0f3d4a;
-    --navy-dark: #0a2c35;
-    --gold: #c8a84b;
-    --gold-light: #d4b96a;
-    --gold-muted: rgba(200,168,75,0.08);
-    --white: #ffffff;
-    --off-white: #f8f9fa;
-    --border-color: #e5e7eb;
-    --text: #1f2937;
-    --text-muted: #4b5563;
+    --navy: #0f3d4a; --navy-dark: #0a2c35; --gold: #c8a84b; --gold-light: #d4b96a;
+    --white: #ffffff; --off-white: #f8f9fa; --border-color: #e5e7eb;
+    --text: #1f2937; --text-muted: #4b5563;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var(--text); background: var(--off-white); line-height: 1.6; }
-
-  header { background: var(--navy); color: var(--white); padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--gold); }
+  
+  header { background: var(--navy); color: var(--white); padding: 40px 20px 20px; text-align: center; border-bottom: 4px solid var(--gold); }
   .header-container { max-width: 1000px; margin: 0 auto; }
   .badge { display: inline-block; background: rgba(200,168,75,0.2); border: 1px solid var(--gold); color: var(--gold-light); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
   header h1 { font-size: clamp(24px, 4vw, 42px); font-weight: 700; margin-bottom: 8px; }
 
-  .image-container { width: 100%; height: 350px; overflow: hidden; background: var(--navy); }
-  .hero-banner { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
-
-  .tabs-nav { display: flex; justify-content: center; background: var(--white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 10; }
-  .tab-btn { flex: 1; max-width: 250px; background: none; border: none; padding: 16px 10px; font-size: 16px; font-weight: 600; color: var(--navy); cursor: pointer; transition: all 0.2s; border-bottom: 3px solid transparent; text-align: center; }
-  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: var(--gold-muted); }
-
-  main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-  .tab-content { display: none; animation: fadeIn 0.4s ease; }
-  .tab-content.active { display: block; }
-
-  .parallel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 24px; margin-bottom: 30px; }
+  .hero-image { width: 100%; max-width: 1000px; margin: 0 auto; display: block; height: auto; }
+  
+  main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+  .parallel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 24px; margin-bottom: 40px; }
   .main-card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
-  .main-card h2 { color: var(--navy); font-size: 24px; margin-bottom: 16px; border-bottom: 2px solid var(--gold-muted); padding-bottom: 8px; }
+  .main-card h2 { color: var(--navy); font-size: 24px; margin-bottom: 16px; border-bottom: 2px solid rgba(200,168,75,0.2); padding-bottom: 8px; }
   
   .sub-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
   .sub-card { background: var(--off-white); padding: 16px; border-radius: 8px; border-left: 4px solid var(--navy); }
@@ -47,24 +31,26 @@
   .sub-card p { font-size: 14px; color: var(--text-muted); }
 
   .metrics-inline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
-  .metric-box { background: var(--gold-muted); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(200,168,75,0.2); }
+  .metric-box { background: rgba(200,168,75,0.08); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(200,168,75,0.2); }
   .metric-num { font-size: 22px; font-weight: 700; color: var(--navy); }
   .metric-lbl { font-size: 12px; color: var(--text-muted); }
 
-  .notice { padding: 20px; border-radius: 8px; background: var(--gold-muted); border-left: 4px solid var(--gold); color: var(--navy-dark); font-size: 14px; margin-top: 24px; }
+  .notice { padding: 20px; border-radius: 8px; background: rgba(200,168,75,0.08); border-left: 4px solid var(--gold); color: var(--navy-dark); font-size: 14px; margin-bottom: 40px; }
   
-  .contact-box { background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; max-width: 600px; margin: 0 auto; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-  .btn-mail { display: inline-block; background: var(--gold); color: var(--navy-dark); text-decoration: none; font-weight: 600; padding: 12px 32px; border-radius: 6px; margin: 20px 0; transition: background 0.2s; }
+  .contact-box { background: var(--navy); color: var(--white); border-radius: 12px; padding: 40px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 40px; }
+  .contact-box h3 { font-size: 24px; margin-bottom: 6px; }
+  .contact-subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+  .btn-mail { display: inline-block; background: var(--gold); color: var(--navy-dark); text-decoration: none; font-weight: 600; padding: 14px 32px; border-radius: 6px; margin: 20px 0; transition: background 0.2s; }
   .btn-mail:hover { background: var(--gold-light); }
-  .bullets-list { text-align: left; list-style: none; border-top: 1px solid var(--border-color); padding-top: 20px; }
-  .bullets-list li { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; display: flex; gap: 10px; }
-  .bullets-list li::before { content: "•"; color: var(--gold); font-weight: bold; }
+  
+  .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; text-align: left; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
+  .req-item { font-size: 14px; color: rgba(255,255,255,0.8); display: flex; align-items: start; gap: 8px; }
+  .req-item::before { content: "•"; color: var(--gold); font-weight: bold; font-size: 18px; line-height: 1; }
 
-  footer { background: var(--navy-dark); color: rgba(255,255,255,0.6); padding: 30px 20px; text-align: center; font-size: 13px; margin-top: 60px; border-top: 1px solid rgba(200,168,75,0.2); }
+  footer { background: var(--navy-dark); color: rgba(255,255,255,0.6); padding: 30px 20px; text-align: center; font-size: 13px; border-top: 1px solid rgba(200,168,75,0.2); }
   footer strong { color: var(--white); display: block; margin-bottom: 4px; }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 768px) { .parallel-grid { grid-template-columns: 1fr; } .image-container { height: 200px; } }
+  @media (max-width: 768px) { .parallel-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -76,77 +62,64 @@
     </div>
   </header>
 
-  <div class="image-container">
-    <img src="image.png" alt="Alianza Universidad EIA - HPTU" class="hero-banner">
-  </div>
-
-  <nav class="tabs-nav">
-    <button class="tab-btn active" onclick="switchTab(event, 'informacion')">Información General</button>
-    <button class="tab-btn" onclick="switchTab(event, 'postulacion')">Postulación</button>
-  </nav>
+  <img src="image.png" alt="Alianza Universidad EIA - HPTU" class="hero-image">
 
   <main>
-    <div id="informacion" class="tab-content active">
-      <div class="parallel-grid">
+    <div class="parallel-grid">
+      <!-- TARJETA UNIVERSIDAD EIA -->
+      <div class="main-card">
+        <h2>Universidad EIA</h2>
+        <p>Ofrece rotaciones clínicas y quirúrgicas en el Hospital Pablo Tobón Uribe para estudiantes de medicina de otras instituciones, nacionales o internacionales, que se encuentren en movilidad académica.</p>
         
-        <div class="main-card">
-          <h2>Universidad EIA</h2>
-          <p>Ofrece rotaciones clínicas y quirúrgicas en el Hospital Pablo Tobón Uribe para estudiantes de medicina de otras instituciones, nacionales o internacionales, que se encuentren en movilidad académica.</p>
-          
-          <div class="sub-grid">
-            <div class="sub-card">
-              <h4>Especialidades disponibles</h4>
-              <p>Servicios clínicos y quirúrgicos en el HPTU. Sujeto a disponibilidad de cupos al momento de la solicitud.</p>
-            </div>
-            <div class="sub-card">
-              <h4>Duración flexible</h4>
-              <p>Aproximadamente un mes por rotación. Es posible solicitar meses consecutivos según el plan académico.</p>
-            </div>
-            <div class="sub-card">
-              <h4>Alcance del programa</h4>
-              <p>Abierto a estudiantes de universidades colombianas y extranjeras con movilidad autorizada.</p>
-            </div>
+        <div class="sub-grid">
+          <div class="sub-card">
+            <h4>Especialidades disponibles</h4>
+            <p>Servicios clínicos y quirúrgicos en el HPTU. Sujeto a disponibilidad de cupos al momento de la solicitud.</p>
+          </div>
+          <div class="sub-card">
+            <h4>Duración flexible</h4>
+            <p>Aproximadamente un mes por rotación. Es posible solicitar meses consecutivos según el plan académico.</p>
+          </div>
+          <div class="sub-card">
+            <h4>Alcance del programa</h4>
+            <p>Abierto a estudiantes de universidades colombianas y extranjeras con movilidad autorizada.</p>
           </div>
         </div>
-
-        <div class="main-card">
-          <h2>Hospital Pablo Tobón Uribe</h2>
-          <p>Fundación sin ánimo de lucro con vocación universitaria. Referente de alta complejidad en Antioquia y Colombia, acreditado nacional e internacionalmente bajo estándares de calidad y seguridad.</p>
-          
-          <div class="metrics-inline">
-            <div class="metric-box"><div class="metric-num">490+</div><div class="metric-lbl">Camas Hospitalarias</div></div>
-            <div class="metric-box"><div class="metric-num">JCI</div><div class="metric-lbl">Acreditación Internacional</div></div>
-            <div class="metric-box"><div class="metric-num">117+</div><div class="metric-lbl">Especialidades Médicas</div></div>
-            <div class="metric-box"><div class="metric-num">N°1</div><div class="metric-lbl">Referente en Antioquia</div></div>
-          </div>
-
-          <div class="sub-card" style="margin-top: 24px; border-left-color: var(--gold);">
-            <h4>Calidad Garantizada</h4>
-            <p>Acreditación del Sistema Único de Acreditación en Salud de Colombia (desde 2005) y la acreditación de la Joint Commission International.</p>
-          </div>
-        </div>
-
       </div>
 
-      <div class="notice">
-        <strong>Disponibilidad sujeta a cupos:</strong> Las rotaciones se asignan según la oferta vigente del Hospital Pablo Tobón Uribe al momento de la solicitud. Consulta directamente con el asesor de movilidad para confirmar disponibilidad.
+      <!-- TARJETA HOSPITAL PABLO TOBÓN URIBE -->
+      <div class="main-card">
+        <h2>Hospital Pablo Tobón Uribe</h2>
+        <p>Fundación sin ánimo de lucro con vocación universitaria. Referente de alta complejidad en Antioquia y Colombia, acreditado nacional e internacionalmente bajo estándares de calidad y seguridad.</p>
+        
+        <div class="metrics-inline">
+          <div class="metric-box"><div class="metric-num">490+</div><div class="metric-lbl">Camas Hospitalarias</div></div>
+          <div class="metric-box"><div class="metric-num">JCI</div><div class="metric-lbl">Acreditación Internacional</div></div>
+          <div class="metric-box"><div class="metric-num">117+</div><div class="metric-lbl">Especialidades Médicas</div></div>
+          <div class="metric-box"><div class="metric-num">N°1</div><div class="metric-lbl">Referente en Antioquia</div></div>
+        </div>
+
+        <div class="sub-card" style="margin-top: 24px; border-left-color: var(--gold);">
+          <h4>Calidad Garantizada</h4>
+          <p>Acreditación del Sistema Único de Acreditación en Salud de Colombia (desde 2005) y la acreditación de la Joint Commission International.</p>
+        </div>
       </div>
     </div>
 
-    <div id="postulacion" class="tab-content">
-      <div class="contact-box">
-        <h3 style="font-size: 24px;">Carlos Andrés Oviedo Castrillón</h3>
-        <div class="contact-subtitle">Asesor de Movilidad — Universidad EIA</div>
-        
-        <a href="mailto:carlos.oviedo28@eia.edu.co" class="btn-mail">carlos.oviedo28@eia.edu.co</a>
-        
-        <ul class="bullets-list">
-          <p style="font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 12px;">Al contactar al asesor, recibirás información sobre:</p>
-          <li>Requisitos específicos (idioma, seguro médico, documentación)</li>
-          <li>Convenio interinstitucional vigente</li>
-          <li>Disponibilidad de cupos por especialidad</li>
-          <li>Fechas y proceso de admisión</li>
-        </ul>
+    <div class="notice">
+      <strong>Disponibilidad sujeta a cupos:</strong> Las rotaciones se asignan según la oferta vigente del Hospital Pablo Tobón Uribe al momento de la solicitud. Consulta directamente con el asesor de movilidad para confirmar disponibilidad.
+    </div>
+
+    <div class="contact-box">
+      <h3>Carlos Andrés Oviedo Castrillón</h3>
+      <div class="contact-subtitle">Asesor de Movilidad — Universidad EIA</div>
+      <a href="mailto:carlos.oviedo28@eia.edu.co" class="btn-mail">carlos.oviedo28@eia.edu.co</a>
+      
+      <div class="req-grid">
+        <div class="req-item">Requisitos específicos (idioma, seguro médico, documentación)</div>
+        <div class="req-item">Convenio interinstitucional vigente</div>
+        <div class="req-item">Disponibilidad de cupos por especialidad</div>
+        <div class="req-item">Fechas y proceso de admisión</div>
       </div>
     </div>
   </main>
@@ -159,19 +132,5 @@
     </div>
   </footer>
 
-  <script>
-    function switchTab(event, tabId) {
-      const contents = document.querySelectorAll('.tab-content');
-      contents.forEach(content => content.classList.remove('active'));
-
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
-      
-      window.scrollTo({ top: 120, behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
